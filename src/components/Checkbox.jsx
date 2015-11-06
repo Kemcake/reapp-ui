@@ -21,7 +21,11 @@ module.exports = Component({
       disabled: this.props.disabled
     };
   },
-
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({checked: nextProps.checked, disabled: nextProps.disabled});
+  },
+  
   handleChange() {
     if(!!!this.props.disabled) {
       if (!this.refs.input.getDOMNode().checked)
